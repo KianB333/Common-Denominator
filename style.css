@@ -1,0 +1,45 @@
+html {
+	box-sizing: border-box;
+	height: 100%;
+}
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+
+body {
+	display: flex;
+	height: 100%;
+	margin: 5px;
+	border: 1px solid black;
+	flex-direction: column;
+}
+
+.user-input {
+	flex: 1;
+	display: flex;
+	border-bottom: 1px solid black;
+}
+
+.day {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	margin: 0;
+	text-align: center;
+	flex: 1;
+	max-width: 33%;
+}
+
+.day input {
+	margin: 10px;
+}
+
+.day button {
+	width: 150px;
+	margin: 10px 0 5px 0;
+}
+
+.results {
+	flex: 3;
+}
