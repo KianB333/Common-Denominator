@@ -7,3 +7,8 @@ main body:
 - "remove last entry" button directly underneath to undo typos, will pop() ending off.
 - No need to list out all the entered plates for that day below (for now)
 - "Generate possible suspects" button, will display underneath a list of plates present on all three days when clicked.
+
+
+Code to check for 3-day plates:
+  run forEach on day1, compare them to each in day2 using a for loop. If any match, store them in new Array (partial).
+  run forEach on partial, compare them to each in day3 using a for loop. If any match, store them in new Array (suspects).

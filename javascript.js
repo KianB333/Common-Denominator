@@ -10,20 +10,32 @@ const rem2 = document.querySelector(".remove2");
 const rem3 = document.querySelector(".remove3");
 
 const resultsBtn = document.querySelector(".results-btn");
-const resultsList = document.querySelector(".results-list");
+let resultsList = document.querySelector(".results-list");
 
-let day1 = [];
-let day2 = [];
-let day3 = [];
+let day1 = ["1A 56646", "2C 54664", "3G 53442"];
+let day2 = ["1A 55371", "2C 55466", "3G 53442"];
+let day3 = ["1A 86995", "2C 88694", "3G 53442"];
+
+let actualDay1 = [];
+let actualDay2 = [];
+let actualDay3 = [];
 
 
-add1.addEventListener("click", (e) => {
+/*add1.addEventListener("click", (e) => {
     if(input1.value) {
         day1.push(input1.value);
         input1.value = "";
         console.log(day1);
     }
-})
+})*/
+resultsList.textContent = "";
+add1.addEventListener("click", (e) => {
+    if(input1.value) {
+        resultsList.textContent += `"${input1.value}", `;
+        input1.value = "";        
+    }
+});
+//New add1 to give me an actual list to work with.
 add2.addEventListener("click", (e) => {
     if(input2.value) {
         day2.push(input2.value);
@@ -66,12 +78,38 @@ wholePage.addEventListener("keydown", (e) => {
 rem1.addEventListener("click", (e) => {
     day1.pop();
 });
-
 rem2.addEventListener("click", (e) => {
     day2.pop();
 });
-
 rem3.addEventListener("click", (e) => {
     day3.pop();
 });
 //Removes most recent plate# from that day
+
+let partial = [];
+let suspects = [];
+function checkSuspects() {
+    day1.forEach(function(day1Plate) {
+        for(let plateCounter = 0; plateCounter < day2.length; plateCounter++) {
+            if(day1Plate == day2[plateCounter]) {
+                partial.push(day1Plate);
+            }
+        }
+    });
+
+    partial.forEach(function(partialPlate) {
+        for(let plateCounter = 0; plateCounter < day3.length; plateCounter++) {
+            if(partialPlate == day3[plateCounter]) {
+                suspects.push(partialPlate);
+            }
+        }
+    });
+
+    resultsList.textContent = suspects;
+};
+//Compiles plate#s and filters only those that were there all three days.
+
+resultsBtn.addEventListener("click", (e) => {
+    checkSuspects();
+})
+//Executes plate compilation
