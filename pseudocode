@@ -4,6 +4,6 @@
 main body: 
 - three input boxes, each labeled "day 1, day 2, day 3" respectively.
   - Will add plate# to that day's array.
-- "remove last entry" button directly underneath to undo typos.
+- "remove last entry" button directly underneath to undo typos, will pop() ending off.
 - No need to list out all the entered plates for that day below (for now)
 - "Generate possible suspects" button, will display underneath a list of plates present on all three days when clicked.
