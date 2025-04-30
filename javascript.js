@@ -13,10 +13,10 @@ const resultsBtn = document.querySelector(".results-btn");
 let resultsList = document.querySelector(".results-list");
 
 let day1 = ["1A 56646", "2C 54664", "3G 53442"];
-let day2 = ["1A 55371", "2C 55466", "3G 53442"];
+let day2 = ["1A 55371", "2C 55466", "3g 53442"];
 let day3 = ["1A 86995", "2C 88694", "3G 53442"];
 
-let actualDay1 = [];
+let actualDay1 = ["V0030U", "U62E", "SVN7226", "SAWDT", "S0DAK2", "MK4D", "M06489", "L776416", "KV1450", "HS6SAR", "GUPYS", "FL5679", "FL5616", "FL343", "EB513U", "DV2WV", "D5815AW", "CYXUAA", "CHX7699", "CFE6556", "C726416", "BMS1327", "AKILI", "9HJR575", "93BUV", "9122F", "8PVC523", "8BTJ", "815JE", "7FLM8", "754UDT", "738BRM", "6C2541U", "5679", "491BLU", "438982D", "339W59", "325BVE", "2THW61U", "2CVE745", "2CUB734", "2CTS108", "2CRZ302", "2CRG513", "2CPC415", "2CN371P", "2CMS906", "2CMG778", "2CME82P", "2CH220P", "2CGH768", "2CDY2P", "2CDV84P", "2CDF07P", "2CCH157", "290BSB", "2324E", "2192", "20C271U", "2075537", "1GS825", "1GA495U", "1G9482U", "1G5097U", "1D2288ZD", "1AZZ98U", "1AZZ980", "1AZEK6U", "1AZ435T", "1AXWX5U", "1AWSK8U", "1AWII2U", "1AUX45U", "1AUI79U", "1ATZZ1U", "1ATW16U", "1ATEA0U", "1ASX33U", "1ASUM8U", "1ASUD7U", "1ARL05U", "1APLZ1U", "1AMF35R", "1ALKN1U", "1ALAG2U", "1AKPW6U", "1AK089V", "1AJH04U", "1AHDX7U", "1AGS825", "1AFMA8U", "1AEFS6U", "1ACVK7U", "1ACGE8U", "1ACGC1U", "1ACG54T", "1ABZ14U", "1ABH98T", "1A967EF", "1A860DF", "1A802JS", "1A754FK", "1A687LX", "1A5K597", "1A4378D", "1A405GN", "1A358CP", "1A353CP", "1A334HB", "1A329HC", "1A1330G", "1A058GA", "1A003KK", "12CMG778", "11ATW16U", "1047UBH", "02PL4E", "02G92D", "02FEYE", "02F1FD", "02CZ1E", "01D6BR", "007993", "006BAF", "005LKG"];
 let actualDay2 = [];
 let actualDay3 = [];
 
@@ -73,7 +73,7 @@ wholePage.addEventListener("keydown", (e) => {
         }
     }
 })
-//Simulates clicking the add button if a day input is focused
+//Clicks the add button when hitting Enter
 
 rem1.addEventListener("click", (e) => {
     day1.pop();
@@ -91,7 +91,7 @@ let suspects = [];
 function checkSuspects() {
     day1.forEach(function(day1Plate) {
         for(let plateCounter = 0; plateCounter < day2.length; plateCounter++) {
-            if(day1Plate == day2[plateCounter]) {
+            if(day1Plate.toUpperCase() == day2[plateCounter].toUpperCase()) {
                 partial.push(day1Plate);
             }
         }
@@ -99,7 +99,7 @@ function checkSuspects() {
 
     partial.forEach(function(partialPlate) {
         for(let plateCounter = 0; plateCounter < day3.length; plateCounter++) {
-            if(partialPlate == day3[plateCounter]) {
+            if(partialPlate.toUpperCase() == day3[plateCounter].toUpperCase()) {
                 suspects.push(partialPlate);
             }
         }

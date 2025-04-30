@@ -12,3 +12,6 @@ main body:
 Code to check for 3-day plates:
   run forEach on day1, compare them to each in day2 using a for loop. If any match, store them in new Array (partial).
   run forEach on partial, compare them to each in day3 using a for loop. If any match, store them in new Array (suspects).
+
+code to remove previous addition:
+  - Save added text as "temp" variable, then remove that text if necessary?
