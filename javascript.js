@@ -75,34 +75,39 @@ rem3.addEventListener("click", (e) => {
 });
 //Removes most recent plate# from that day
 
-let partial = [];
+let potentialMatch = [];
 let suspects = [];
 function checkSuspects() {
+    potentialMatch = [];
+    suspects = [];
     day1.forEach(function(day1Plate) {
         for(let plateCounter = 0; plateCounter < day2.length; plateCounter++) {
             if(day1Plate.toUpperCase() == day2[plateCounter].toUpperCase()) {
-                partial.push(day1Plate);
+                potentialMatch.push(day1Plate);
             }
         }
     });
+    //compares day1 to day2
 
-    partial.forEach(function(partialPlate) {
+    potentialMatch.forEach(function(potentialPlate) {
         for(let plateCounter = 0; plateCounter < day3.length; plateCounter++) {
-            if(partialPlate.toUpperCase() == day3[plateCounter].toUpperCase()) {
-                suspects.push(partialPlate);
+            if(potentialPlate.toUpperCase() == day3[plateCounter].toUpperCase()) {
+                suspects.push(potentialPlate);
             }
         }
     });
+    //compares results from previous comparison to day3
 
-    console.log(suspects);
+    let suspectsListed = "";
     for(let plateCounter = 0; plateCounter < suspects.length; plateCounter++ ) {
-        resultsList.textContent += `${suspects[plateCounter]}, `;
+        suspectsListed += `${suspects[plateCounter]}, `;
     }
+    resultsList.textContent = suspectsListed.slice(0, -2);
+    //Compiles results in a viewable manner, trims the excess punctuation
 };
-//Compiles plate#s and filters only those that were there all three days.
+//Filters only the plates that were present in all three days.
 
 resultsBtn.addEventListener("click", (e) => {
-    console.log(day1, day2, day3);
+    resultsList.textContent = "";
     checkSuspects();
-})
-//Executes plate compilation
+});
